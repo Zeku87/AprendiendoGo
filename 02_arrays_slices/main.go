@@ -6,6 +6,16 @@ import (
 )
 
 func main() {
+	//Los arrays tradicionales tienen un tamaño fijo
+	//para todo el programa
+	var nombres [2]string
+	nombres[0] = "Juan"
+	nombres[1] = "María"
+	fmt.Println(nombres[0], nombres[1])
+	fmt.Println(nombres)
+
+	numerosPrimos := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(numerosPrimos)
 
 	//Un slice es un array que crece y decrece dinámicamente
 	//por lo que no tendremos que establecer un tamaño fijo
@@ -31,7 +41,7 @@ func main() {
 	//La variable i indica la posición actual
 	//La variable carta sostiene el valor del elemento actual
 	for i, carta := range cartas {
-		fmt.Println(carta)
+		fmt.Println(i, carta)
 	}
 
 	//Ahora anidamos dos estructuras for para sacar todas las cartas por pantalla
