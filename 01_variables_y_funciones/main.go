@@ -1,13 +1,17 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
 var hey = "Hey."
 
 func main() {
+	testFuncionesMulti()
+}
 
+func tiposBasicosDeDatos() {
 	//En go hay 4 tipos básicos
 	//bool, string, int, float64
 	//var carta string = "As de espadas"
@@ -28,4 +32,27 @@ func main() {
 //string indica que la función devuelve una cadena
 func nuevaCarta() string {
 	return "Tres de copas"
+}
+
+/*
+	Desde la siguiente función hacemos llamadas a la función dividir
+	Importamos el paquete errors para notificar que no se puede dividir por cero
+*/
+func testFuncionesMulti() {
+
+	resultado, error := dividir(43, 0)
+
+	if error == nil {
+		fmt.Println("Resultado de la division", resultado)
+	} else {
+		fmt.Println(error)
+	}
+}
+
+func dividir(a float64, b float64) (float64, error) {
+
+	if b == 0 {
+		return 0, errors.New("Es incongruente dividir por cero")
+	}
+	return a / b, nil
 }
